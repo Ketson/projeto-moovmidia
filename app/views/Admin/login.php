@@ -1,3 +1,10 @@
+<?php
+ini_set('display_errors', true);
+error_reporting(E_ALL);
+session_start();
+
+?>
+
 <!DOCTYPE html>
 <html lang="en">
 
@@ -41,15 +48,16 @@
                                     <div class="text-center">
                                         <h1 class="h4 text-gray-900 mb-4">Administrativo</h1>
                                     </div>
-                                    <form class="user" method="POST" >
+                                    <form class="user" method="POST" action="../../actions/InterfaceAdministrativa/login.php">
+                                    <?php include('../components/alerts.php');?>
                                         <div class="form-group">
                                             <input type="email" class="form-control form-control-user"
                                                 name="email" aria-describedby="emailHelp"
-                                                placeholder="E-mail de acesso">
+                                                placeholder="E-mail de acesso" required>
                                         </div>
                                         <div class="form-group">
                                             <input type="password" name="senha" class="form-control form-control-user"
-                                                id="exampleInputPassword" placeholder="Entre com sua senha">
+                                                id="exampleInputPassword" placeholder="Entre com sua senha" required>
                                         </div>
                                         
                                         <button type="submit" class="btn btn-primary btn-user btn-block">
