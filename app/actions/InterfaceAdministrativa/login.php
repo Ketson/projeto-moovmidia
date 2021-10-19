@@ -13,9 +13,11 @@ if (!isset($_POST['email']) or !isset($_POST['senha'])) {
     die('Campos inválidos');
 }
 
+//instancias
 $usuarioModel = new Usuario();
 $adminModel = new Admin();
 
+//inputs
 $email = htmlspecialchars($_POST['email']);
 $senha = htmlspecialchars($_POST['senha']);
 
@@ -36,6 +38,8 @@ if(!$admin){
     header('Location: http://localhost/projetoMoovmidia/app/views/admin/login.php');
     die();
 }
+
+header('Location: http://localhost/projetoMoovmidia/app/views/admin/dashboard.php');
 
 $_SESSION['autenticado_admin'] = true; //vai ligar a sessão autenticado
 $_SESSION['admin_id'] = $admin['id']; //salvar o id do admin logado, que ai no painel administrativo vai mostrar o nome do administador logado

@@ -7,7 +7,7 @@ $usuarioModel = new Usuario();
 $adminModel = new Admin();
 
 $arrayUsuario = [
-    'email' => 'admin@gmail.com',
+    'email' => 'ketson@gmail.com',
     'senha' => md5('123456')
 ];
 
@@ -16,7 +16,7 @@ $usuarioModel->create($arrayUsuario);
 $usuario = $usuarioModel->buscarPorEmail($arrayUsuario['email']);
 
 $arrayAdmin = [
-    'nome' => 'Admin',
+    'nome' => 'Kétson',
     'usuarios_id' => $usuario['id']
 ];
 
