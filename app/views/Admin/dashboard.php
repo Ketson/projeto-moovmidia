@@ -68,12 +68,12 @@ session_start();
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
                     aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
-                    <span>Components</span>
+                    <span>Configurações</span>
                 </a>
                 <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Custom Components:</h6>
-                        <a class="collapse-item" href="buttons.html">Buttons</a>
+                        <h6 class="collapse-header">Administrador:</h6>
+                        <a class="collapse-item" href="http://localhost/projetoMoovmidia/app/views/admin/alterarSenha.php">Alterar Senha</a>
                         <a class="collapse-item" href="cards.html">Cards</a>
                     </div>
                 </div>
@@ -103,7 +103,7 @@ session_start();
 
             <!-- Heading -->
             <div class="sidebar-heading">
-                Addons
+                Condutor
             </div>
 
             <!-- Nav Item - Pages Collapse Menu -->
@@ -167,7 +167,7 @@ session_start();
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Blank Page</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Bem-vindo, <?php echo $_SESSION['admin_nome'];?></h1>
 
                 </div>
                 <!-- /.container-fluid -->
