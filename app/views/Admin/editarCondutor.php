@@ -3,6 +3,20 @@ ini_set('display_errors', true);
 error_reporting(E_ALL);
 session_start();
 
+//imports
+require_once('../../models/Condutor.php');
+require_once('../../models/Usuario.php');
+
+//instancias
+$condutorModel = new Condutor();
+$usuarioModel = new Usuario();
+
+//inputs que vai receber o id
+$id = $_GET['id'];
+
+$condutor = $condutorModel->buscarCondutorPorID($id);
+$usuario = $usuarioModel->buscarPorUsuarioID($condutor['usuarios_id']);
+
 ?>
 <!DOCTYPE html>
 <html lang="pt-br">
@@ -15,7 +29,7 @@ session_start();
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Alterar Senha</title>
+    <title>Editar Condutor</title>
 
     <!-- Custom fonts for this template-->
     <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -25,9 +39,7 @@ session_start();
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -70,8 +82,7 @@ session_start();
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Configurações</span>
                 </a>
@@ -79,20 +90,18 @@ session_start();
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Administrador:</h6>
                         <a class="collapse-item" href="http://localhost/projetoMoovmidia/app/views/admin/alterarSenha.php">Alterar Senha</a>
-                        <a class="collapse-item" href="cards.html">Cards</a>
+                        <a class="collapse-item" href="http://localhost/projetoMoovmidia/app/views/admin/editarCondutor.php">Editar Condutor</a>
                     </div>
                 </div>
             </li>
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Utilities</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="utilities-color.html">Colors</a>
@@ -113,13 +122,11 @@ session_start();
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-                    aria-controls="collapsePages">
+                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true" aria-controls="collapsePages">
                     <i class="fas fa-fw fa-folder"></i>
                     <span>Pages</span>
                 </a>
-                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
-                    data-parent="#accordionSidebar">
+                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Login Screens:</h6>
                         <a class="collapse-item" href="login.html">Login</a>
@@ -172,39 +179,54 @@ session_start();
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Alterar Senha</h1>
+                    <h1 class="h3 mb-4 text-gray-800">Editar Condutor</h1>
 
                     <div class="row">
-                        <div class="col-" style="margin-left: 300px;">
-                       
-                        <?php include('../components/alerts.php') ?>
+                        <div class="col-12">
 
-                    <!-- Formulario aqui -->
-                    <form class="user" method="POST" action="../../actions/InterfaceAdministrativa/alterarSenha.php">
-                                <div class="form-group">
-                                    <input type="password" class="form-control form-control-user"  name="senhaAtual"
-                                        placeholder="Senha Atual">
+                            <?php include('../components/alerts.php') ?>
+
+                            <!-- Formulario aqui -->
+                            <form class="user" method="POST" action="../../actions/condutor/editarCondutor.php">
+
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" name="nomeCompleto" placeholder="Nome Completo" value="<?=$condutor['nome']?>">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="email" class="form-control form-control-user" name="email" placeholder="E-mail" value="<?=$usuario['email']?>">
+                                    </div>
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                             name="novaSenha" placeholder="Nova Senha">
+                                        <input type="text" class="form-control form-control-user" name="cpf" placeholder="CPF" value="<?=$condutor['cpf']?>">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                             name="confirmarSenha" placeholder="Confirmar Senha">
+                                        <input type="text" class="form-control form-control-user" name="telefone" placeholder="Telefone" value="<?=$condutor['telefone']?>">
+                                    </div>
+                                </div>
+                                <div class="form-group row">
+                                    <div class="col-sm-6 mb-3 mb-sm-0">
+                                        <input type="text" class="form-control form-control-user" name="carro" placeholder="Carro" value="<?=$condutor['carro']?>">
+                                    </div>
+                                    <div class="col-sm-6">
+                                        <input type="text" class="form-control form-control-user" name="placa" placeholder="Placa" value="<?=$condutor['placa']?>">
+                                    </div>
+                                    <div class="form-check form-switch">
+                                        <input class="form-check-input" type="checkbox" id="flexSwitchCheckChecked" checked>
+                                        <label class="form-check-label" for="flexSwitchCheckChecked">Ativar/Desativar o condutor</label>
                                     </div>
                                 </div>
 
-                               
-                                
+                                <input name="id" type="hidden" value="<?=$condutor['id']?>">
+
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Alterar
                                 </button>
                                 <hr>
-                            
+
                             </form>
-                            </div>
+                        </div>
 
 
 
