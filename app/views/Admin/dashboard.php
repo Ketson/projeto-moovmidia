@@ -167,14 +167,14 @@ session_start();
                 <div class="container-fluid">
 
                     <!-- Page Heading -->
-                    <h1 class="h3 mb-4 text-gray-800">Bem-vindo, <?php echo $_SESSION['admin_nome'];?></h1>
+                    <h1 class="h3 mb-4 text-gray-800">Bem-vindo, <b><?php echo $_SESSION['admin_nome'];?></b></h1>
 
                 </div>
                 <!-- /.container-fluid -->
+                <?php include('../components/alerts.php') ?>
 
             </div>
             <!-- End of Main Content -->
-
             <!-- Footer -->
             <footer class="sticky-footer bg-white">
                 <div class="container my-auto">
