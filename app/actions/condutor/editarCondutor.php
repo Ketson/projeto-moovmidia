@@ -38,6 +38,6 @@ $arrayCondutor = [
 $condutorModel->atualizar($arrayCondutor,$condutor['id']);
 $condutorModel->buscarTodosCondutores();
 
-$_SESSION['success'] = 'Condutor Atualizado!';
+$_SESSION['success'] = 'Condutor Atualizado com Sucesso!';
 header('Location: http://localhost/projetoMoovmidia/app/views/admin/dashboard.php');
 die();

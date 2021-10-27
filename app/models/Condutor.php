@@ -19,6 +19,14 @@ class Condutor
         return $this->mysql->inserir($arrayCondutor);
     }
 
+    public function cadastrarCondutor($arrayCondutor){
+        $arrayCondutor['criado_em'] = date('Y-m-d H:i:s');
+        $arrayCondutor['editado_em'] = date('Y-m-d H:i:s');
+
+        return $this->mysql->inserir($arrayCondutor);
+
+    }
+
     public function buscarCondutorPorUsuarioID($usuarios_id)
     {
         $where = "usuarios_id = $usuarios_id";
@@ -41,6 +49,12 @@ class Condutor
     public function buscarPorEmail(string $email)
     {
         $where = "email = '$email'";
+        return $this->mysql->buscar($where);
+    }
+
+    public function buscarPorCPF(string $cpf)
+    {
+        $where = "cpf = '$cpf'";
         return $this->mysql->buscar($where);
     }
 

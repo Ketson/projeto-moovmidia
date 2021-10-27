@@ -20,6 +20,14 @@ class Usuario
         return $this->mysql->inserir($arrayUsuario);
     }
 
+    public function cadastrarUsuario($arrayUsuario){
+        $arrayUsuario['criado_em'] = date('Y-m-d H:i:s');
+        $arrayUsuario['editado_em'] = date('Y-m-d H:i:s');
+
+        return $this->mysql->inserir($arrayUsuario);
+
+    }
+
     public function alterarSenha($arrayUsuario, $id)
     {
         $where = "id = $id";
@@ -48,6 +56,12 @@ class Usuario
         } else {
             return false;
         }
+    }
+
+    public function buscarPorCPF(string $cpf)
+    {
+        $where = "cpf = '$cpf'";
+        return $this->mysql->buscar($where);
     }
 
     public function buscarPorUsuarioID($id)

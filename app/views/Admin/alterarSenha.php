@@ -25,9 +25,7 @@ session_start();
     <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
     <link href="assets/vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-    <link
-        href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i"
-        rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
     <!-- Custom styles for this template-->
     <link href="assets/css/sb-admin-2.min.css" rel="stylesheet">
@@ -47,18 +45,11 @@ session_start();
                 <div class="sidebar-brand-icon rotate-n-15">
                     <i class="fab fa-affiliatetheme"></i>
                 </div>
-                <div class="sidebar-brand-text mx-3">Administrador</div>
+                <div class="sidebar-brand-text mx-3">Moovmidia</div>
             </a>
 
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
-
-            <!-- Nav Item - Dashboard -->
-            <li class="nav-item">
-                <a class="nav-link" href="index.html">
-                    <i class="fas fa-fw fa-tachometer-alt"></i>
-                    <span>Dashboard</span></a>
-            </li>
 
             <!-- Divider -->
             <hr class="sidebar-divider">
@@ -70,8 +61,7 @@ session_start();
 
             <!-- Nav Item - Pages Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo"
-                    aria-expanded="true" aria-controls="collapseTwo">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
                     <i class="fas fa-fw fa-cog"></i>
                     <span>Configurações</span>
                 </a>
@@ -86,13 +76,11 @@ session_start();
 
             <!-- Nav Item - Utilities Collapse Menu -->
             <li class="nav-item">
-                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities"
-                    aria-expanded="true" aria-controls="collapseUtilities">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseUtilities" aria-expanded="true" aria-controls="collapseUtilities">
                     <i class="fas fa-fw fa-wrench"></i>
                     <span>Utilities</span>
                 </a>
-                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities"
-                    data-parent="#accordionSidebar">
+                <div id="collapseUtilities" class="collapse" aria-labelledby="headingUtilities" data-parent="#accordionSidebar">
                     <div class="bg-white py-2 collapse-inner rounded">
                         <h6 class="collapse-header">Custom Utilities:</h6>
                         <a class="collapse-item" href="utilities-color.html">Colors</a>
@@ -105,50 +93,6 @@ session_start();
 
             <!-- Divider -->
             <hr class="sidebar-divider">
-
-            <!-- Heading -->
-            <div class="sidebar-heading">
-                Condutor
-            </div>
-
-            <!-- Nav Item - Pages Collapse Menu -->
-            <li class="nav-item active">
-                <a class="nav-link" href="#" data-toggle="collapse" data-target="#collapsePages" aria-expanded="true"
-                    aria-controls="collapsePages">
-                    <i class="fas fa-fw fa-folder"></i>
-                    <span>Pages</span>
-                </a>
-                <div id="collapsePages" class="collapse show" aria-labelledby="headingPages"
-                    data-parent="#accordionSidebar">
-                    <div class="bg-white py-2 collapse-inner rounded">
-                        <h6 class="collapse-header">Login Screens:</h6>
-                        <a class="collapse-item" href="login.html">Login</a>
-                        <a class="collapse-item" href="register.html">Register</a>
-                        <a class="collapse-item" href="forgot-password.html">Forgot Password</a>
-                        <div class="collapse-divider"></div>
-                        <h6 class="collapse-header">Other Pages:</h6>
-                        <a class="collapse-item" href="404.html">404 Page</a>
-                        <a class="collapse-item active" href="blank.html">Blank Page</a>
-                    </div>
-                </div>
-            </li>
-
-            <!-- Nav Item - Charts -->
-            <li class="nav-item">
-                <a class="nav-link" href="charts.html">
-                    <i class="fas fa-fw fa-chart-area"></i>
-                    <span>Charts</span></a>
-            </li>
-
-            <!-- Nav Item - Tables -->
-            <li class="nav-item">
-                <a class="nav-link" href="tables.html">
-                    <i class="fas fa-fw fa-table"></i>
-                    <span>Tables</span></a>
-            </li>
-
-            <!-- Divider -->
-            <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->
             <div class="text-center d-none d-md-inline">
@@ -175,43 +119,29 @@ session_start();
                     <h1 class="h3 mb-4 text-gray-800">Alterar Senha</h1>
 
                     <div class="row">
-                        <div class="col-" style="margin-left: 300px;">
-                       
-                        <?php include('../components/alerts.php') ?>
+                        <div class="col-" style="margin-left: 370px;">
 
-                    <!-- Formulario aqui -->
-                    <form class="user" method="POST" action="../../actions/InterfaceAdministrativa/alterarSenha.php">
+                            <?php include('../components/alerts.php') ?>
+
+                            <!-- Formulario aqui -->
+                            <form class="user" method="POST" action="../../actions/InterfaceAdministrativa/alterarSenha.php">
                                 <div class="form-group">
-                                    <input type="password" class="form-control form-control-user"  name="senhaAtual"
-                                        placeholder="Senha Atual">
+                                    <input type="password" class="form-control form-control-user" name="senhaAtual" placeholder="Senha Atual">
                                 </div>
                                 <div class="form-group row">
                                     <div class="col-sm-6 mb-3 mb-sm-0">
-                                        <input type="password" class="form-control form-control-user"
-                                             name="novaSenha" placeholder="Nova Senha">
+                                        <input type="password" class="form-control form-control-user" name="novaSenha" placeholder="Nova Senha">
                                     </div>
                                     <div class="col-sm-6">
-                                        <input type="password" class="form-control form-control-user"
-                                             name="confirmarSenha" placeholder="Confirmar Senha">
+                                        <input type="password" class="form-control form-control-user" name="confirmarSenha" placeholder="Confirmar Senha">
                                     </div>
                                 </div>
-
-                               
-                                
                                 <button type="submit" class="btn btn-primary btn-user btn-block">
                                     Alterar
                                 </button>
                                 <hr>
-                            
                             </form>
-                            </div>
-
-
-
-
-
-
-
+                        </div>
                     </div>
                     <!-- /.container-fluid -->
 
@@ -220,7 +150,7 @@ session_start();
 
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
-                    <div class="container my-auto">
+                    <div class="container my-auto" style="position:absolute; width: center;bottom:0;">
                         <div class="copyright text-center my-auto">
                             <span>Moovmidia &copy; 2021</span>
                         </div>
